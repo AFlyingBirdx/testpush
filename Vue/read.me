@@ -24,5 +24,14 @@ v-for key原理
 
 ----------
 Vue要对数组做到响应式,不要直接给数组元素赋值,这样不是响应式的,而是要使用数组方法,vue对这些方法做了响应式
+
 对后来需要添加的属性,想做响应式,需要调用 vue.set(target,'propername',value)，也可以修改数组vue.set(target,<数组索引>,value)
+
+vue.set()和 vue.$set() 不能应用在 vm上和 vm_data上
 ----------
+
+
+--------------
+Vue 通过  Objetc.defineProperty() 可以遍历一个对象的属性,为之匹配setter getter 当访问某个属性的时候,就调用方法
+当修改时候,调用setter方法,渲染dom 
+--------------
