@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+        <h2 v-big="n"></h2>
+
+    </div>
+
+
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                n:10
+            },
+            methods: {
+                
+            },
+            directives:{
+
+                big(domelement,binding){
+                    // domelement 是真实的DOM元素
+                    // binding 绑定对象,可以获取指令 = 后面的值
+                    domelement.innerText = binding.value * 10
+                    console.log(domelement instanceof HTMLElement)
+                    console.log(binding.value)
+                },
+
+                //自定义指令对象写法,钩子函数,回调函数
+                fbing:{
+                    //指令与元素成功绑定时间(一上来)
+                    bind(element,binding){
+                        element.value = binding.value
+                    },
+                    //指令所在元素被插入页面时
+                    inserted(element,binding){
+                        element.focus()
+                    },
+                    //指令所在的模板被重新解析时
+                    update(element,binding){
+                        element.value =binding.value
+                    }
+                }
+
+            }
+        })
+    </script>
+
+</body>
+</html>
