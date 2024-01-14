@@ -1,0 +1,40 @@
+!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+    <script>
+
+        //编程语言,有这么一个设计,当我访问一个属性的时候可以调用方法,称之为 get()方法,修改某个属性的时候,调用set方法
+        //既然是方法,那么就可以做很多事情了,常见的就是数据代理,调用get方法,返回的是其他数据,set方法修改的是其他数据
+        let number =10;
+         let Person = {
+            name:"嘻嘻嘻",
+        }
+
+        //可以设置方法来读取属性值,而方法里面设置的是其他地方的值,就是数据代理
+        Object.defineProperty(Person,'age',{
+            set(value){
+                number =value
+            },
+            get(){
+                return number
+            }
+        })
+        number = 60
+   
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+    <title>对比vue的原生html</title>
+
+    <style>
+        #app {
+            width: 600px;
+            height: 600px;
+            background-color: aqua;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div onclick="(function(){console.log('嘻嘻嘻')})()" id="app" :x="console.log('嘻嘻嘻嘻')">
+      
+    </div>
+
+    <script>
+        const app = document.querySelector("#app")
+        const Attributes = app.getAttributeNames()
+        Attributes.forEach(element => {
+                if(element.startsWith(":")){
+                    eval(app.getAttribute(element))
+                }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+计算属性:
+计算属性会有缓存,而方法调用没有,当dom因为数据变化,重新绘制加载的的时候,
+方法会被多次调用,而计算属性会先根据依赖的数据否变化来选择读取缓存还是重新调用get方法
+
+Watch与computed:
+watch是函数式改变数据,可以通过异步改变数据
+computed的是返回式改变数据  return
+
+
+v-if 节点直接重dom删除了 v-show dom节点还在,只是将其 display:none
+
+v-for key原理
+
